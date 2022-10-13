@@ -1,7 +1,7 @@
 .PHONY: homework-i-run
 # Run homework.
 homework-i-run:
-	@python manage.py
+	@python main.py
 
 
 .PHONY: init-dev
