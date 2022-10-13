@@ -3,9 +3,9 @@ from typing import Iterator, Protocol, TypeAlias
 from data import password_generator, login_generator
 import logging
 
-logging = logging.getLogger()
-logging.level = logging.DEBUG
-logging.addHandler(logging.StreamHandler(sys.stderr))
+log = logging.getLogger()
+logging.basicConfig(level=logging.DEBUG)
+log.addHandler(logging.StreamHandler(sys.stderr))
 
 T_LOGIN: TypeAlias = str
 T_PASSWORD: TypeAlias = str
@@ -31,8 +31,8 @@ def validate(users: list[UserProtocol], amount: int) -> None:
 
 
 def generate_users(amount: int) -> Iterator[UserProtocol]:
-    logins = set[str] = set()
-    passwords = set[str] = set()
+    logins: set[str] = set()
+    passwords: set[str] = set()
     while len(logins) < amount or len(passwords) < amount:
         logins.add(login_generator())
         passwords.add(password_generator())
